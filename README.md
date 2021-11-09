@@ -29,8 +29,10 @@
 
 ### 주로 사용하게 될 태그등
 
+```
 - <style>, <script>, <h1>, <p>, <div>
 - <form>, <input>, <button>, <select>
+```
 
 ### UI/UX
 - UI(User Interface): 화면, GUI(Graphical User Interface)
