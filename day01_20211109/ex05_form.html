@@ -7,15 +7,67 @@
     <title>form</title>
 </head>
 <body>
-    <form action="test" method="post">
+    <form action="test" method="get">
         <!-- /temp?aa=안녕
             /test?bbb=ㅎㅎㅎ
             /test?bbb=자바&ccc=디비 -->
         <!-- name속성값: 서버로 요청할 때 데이터를 담는 파라미터(변수) 이름 -->
-       입력1: <input type="text" name="bbb" placeholder="검색어입력"><br>
-       입력1: <input type="text" name="ccc"><br>
-       입력1: <input type="text" name="ddd"><br>
-       <input type="submit" value="전송">
+        입력1: <input type="text" name="bbb" placeholder="검색어입력"><br>
+        입력2: <input type="text" name="ccc"><br>
+        입력3: <input type="text" name="ddd"><br>
+        
+        <!-- select -->
+        국가: <select name="nation" id="">
+            <option selected><p>선택하세요</p></option>
+            <option value="korea">대한민국</option>
+            <option value="usa">미국</option>
+            <option value="australia">호주</option>
+            <option value="canada">캐나다</option>
+        </select>
+        <br>
+        
+        <!-- 셀렉트를 활용하여 이메일 입력 폼을 만들어 봅시다. -->
+        이메일: <input type="text" name="asd">@
+        <input type="text">
+        <select name="domain" id="">
+            <option value="">직접입력</option>
+            <option value="naver.com">naver.com</option>
+            <option value="hanmail.com">hanmail.com</option>
+            <option value="gmail.com">gmail.com</option>
+        </select><br>
+
+        <!-- 장문의 글을 쓸 필요가 있을 때 -->
+        <textarea name="contents" id="" cols="30" rows="5"></textarea>
+        <br>
+
+        <!-- 비밀번호 -->
+        <label for="pw">비밀번호: </label> <input id="pw" type="password" name="pw">
+        <br>
+
+        <!-- radio 버튼(선택항목의 name이 모두 같아야함) -->
+        <!-- label id가 input과 동일 해야함 -->
+        가입유형: <input id="p" type="radio" name="jointype" value="personal">
+            <label for="p">개인</label>
+        <input type="radio" id="a" name="jointype" value="commercial">
+            <label for="a">사업자</label>
+        <input type="radio" id="b" name="jointype" value="no">
+            <label for="b">해당없음</label>
+        <br>
+
+        <!-- checkbox 여러개 선택가능 -->
+        활용가능언어:
+        <input type="checkbox" name="long" value="java">자바
+        <input type="checkbox" name="long" value="mysql">mysql
+        <input type="checkbox" name="long" value="html">html
+        <input type="checkbox" name="long" value="python">python
+        <br>
+
+        <!-- date 달력 -->
+        생일:
+        <input type="date" name="birth">
+        <br>
+
+        <input type="submit" value="전송">
     </form>
     
 </body>
