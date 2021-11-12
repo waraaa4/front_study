@@ -7,16 +7,20 @@
     <title>Document</title>
     <script>
         function fun1(){
-            // DOM제어
+            // DOM(Document Object Model)제어
+            // DOM API(Application Programming Interface)
             // document: 현재 html
             // getElementById(): ()안에 작성한 특정id를 가져오겠다. 
+
             let ele1 = document.getElementById("id1");
             console.log(ele1);
             ele1 = ele1.innerHTML;
             console.log(ele1)
+
             // innerHTML: 시작태그 종류태그 사이에 작성된 내용
             const ele2 = document.getElementById("id1").innerHTML;
             console.log(ele1);
+
             //querySelector(): 
             const ele3 = document.querySelector("#id1");
             console.log(ele3)
