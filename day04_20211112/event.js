@@ -19,3 +19,6 @@ function fun1(){
     console.log("함수 호출됨")
 }
 
+function fun3(){
+    console.log(123)
+}
