@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    숫자1: <input type="text" id="num1"> <br>
+    숫자2: <input type="text" id="num2"> <br>
+    <p id="result1">여기에 결과를 출력</p>
+    <button onclick="cal1()">덧셈계산</button> <br>
+    <p></p>
+    점수: <input type="text" id="score"> <br>
+    성적: <input type="text" id="grades"> <br>
+    <button onclick="cal2()">성적계산</button>
+    <p id="result2">성적출력</p>
+    
+</body>
+<script>
+
+    function cal1(){
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        num1 = parseInt(num1)
+        num2 = parseInt(num2)
+        const sum = num1 + num2;
+        const text1 = document.getElementById('result1').innerHTML = sum
+    }
+    
+    function cal2(){
+        const score = document.getElementById('score').value
+        const grades = document.getElementById('grades')
+        let result2 = document.getElementById('result2')
+        if(score >= 90 && score <= 100){
+            grades.value = 'a';
+        } else if(score <= 89 && score >= 70){
+            grades.value = 'b';
+        }
+    }
+
+</script>
+</html>
