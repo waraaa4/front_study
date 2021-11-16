@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function pwBlur(){
+        // 영문소문자, 숫자, 6~10자리 정규식 
+        // 소문자 숫자가 반드시 1개 이상 사용되어야 함. 
+        var exp = /^(?=.*[a-z])(?=.*\d)[a-z\d]{6,10}$/;
+            
+        // 영문대소문자, 숫자, 6~10자리 정규식 
+        // 소문자, 대문자, 숫자가 반드시 1개이상 사용되어야 함. 
+        var exp1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,10}$/;
+            
+        // 네이버 아이디 정규식 
+        // 영문소문자, 숫자, -_ 특수문자, 5~20자리
+        // 소문자, 숫자, 특수문자(-_)가 반드시 1개 이상 사용되어야 함. 
+        var exp2 = /^(?=.*[a-z])(?=.*\d)(?=.*[-_])[a-z\d-_]{5,20}$/; 
+
+        var exp3 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_])[a-zA-Z\d-_]{8,16}$/; 
+
+        const pw = document.getElementById('pw').value;
+
+        if(pw.match(exp3)){
+            console.log('유효한형식입니다.')
+        } else{
+            console.log('유효하지않은형식입니다.')
+        }
+
+    }
+</script>
+<style>
+    input {
+        width: 100%;
+    }
+</style>
+<body>
+    <label for="pw">비밀번호</label>
+    <input type="text" name="pw" onblur="pwBlur()" id="pw" placeholder="8~16 글자 사이로 비밀번호 입력해주세요">
+</body>
+</html>
