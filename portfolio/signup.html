@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0; padding: 0;
+        }
+        .wrap {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .member {
+            width: 1000px;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .member>div {
+            width: 460px;
+            margin-bottom: 20px;
+            
+        }
+        .member>div>label {
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 30px;
+        }
+        .member>div>input {
+            width: 400px;
+            height: 40px;
+        }
+        .member>div>span {
+            font-size: 14px;
+        }
+        .member>div>select {
+            height: 44px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="member">
+            <h1 style="padding-right: 60px; padding-top: 50px;">회원가입</h1>
+            <!-- 아이디 -->
+            <div style="margin-top: 30px;">
+                <label for="id">아이디</label><br>
+                <input type="text" id="id" onblur="idCheck()" placeholder=" 영문대소문자, 숫자, 특수문자-_! 조합하여 5~20글자 이내 입력"><br>
+                <span id="idResult">&nbsp;</span> 
+            </div>
+
+            <!-- 비밀번호 -->
+            <div>
+                <label for="pw">비밀번호</label><br>
+                <input type="password" name="pw" onblur="pwCheck()" id="pw" placeholder=" 영문대소문자, 숫자, 특수문자-_! 조합하여 8~16글자 이내 입력"><br>
+                <span id="pwResult">&nbsp;</span> 
+            </div>
+
+            <!-- 비밀번호 확인 -->
+            <div>
+                <label for="pw_check">비밀번호 확인</label><br>
+                <input type="password" name="pw_check" onblur="pw_checkResult()" id="pw_check"><br>
+                <span id="pw_checkResult">&nbsp;</span> 
+            </div>
+
+            <!-- 이메일 -->
+            <div>
+                <label for="domain">이메일</label><br>
+                <input type="text" name="emailId" style="width: 135px;"> @ <input type="text" id='domain' name="domain" style="width: 135px;">
+                <select id="domainSelect" onchange="emailSelect()" style="width: 95px;">
+                    <option value="">직접입력</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="hanmail.com">hanmail.com</option>
+                    <option value="gmail.com">gmail.com</option>
+                </select>
+            </div>
+
+            <!-- 성별 -->
+            <div>
+                <label for="gender">성별</label><br>
+                <select id="gender" onchange="genderSelect()" style="width: 405px;">
+                    <option>성별선택</option>
+                    <option value="man">남자</option>
+                    <option value="woman">여자</option>
+                    <option value="none">없음</option>
+                </select>
+            </div>
+
+            <!-- 전화번호 -->
+            <div>
+                <label for="phone">전화번호</label> <br>
+                <input type="text" id="phone" onblur="phoneCheck()" placeholder=" - 제외하고 전화번호를 입력해 주세요"><br>
+                <span id="phone-check-result">&nbsp;</span>
+            </div>
+            <!-- 주소 -->
+            <div>
+                <p style="margin: 5px; font-weight: bold;">주소</p>
+                <input type="text" id="sample6_postcode" placeholder=" 우편번호" style="width: 200px;">
+                <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="width: 194px;"><br>
+                <input type="text" id="sample6_address" placeholder=" 주소"><br>
+                <input type="text" id="sample6_detailAddress" placeholder=" 상세주소">
+                <input type="text" id="sample6_extraAddress" placeholder=" 참고항목">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    // 아이디
+    function idCheck(){
+        var exp = /^(?=.*[a-z])(?=.*\d)(?=.*[-_!])[a-z\d-_!]{5,20}$/; 
+        const id= document.getElementById('id').value
+        const idLegth = id.length
+        const idResult = document.getElementById('idResult')
+        if(id.match(exp)){
+            idResult.innerHTML = '유효한 형식입니다.'
+            idResult.style.color = 'green'
+        } else if(idLegth == 0){
+            idResult.innerHTML = '필수항목입니다'
+            idResult.style.color = 'red'
+        } else {
+            idResult.innerHTML = '유효하지 않은 형식입니다.'
+            idResult.style.color = 'red'
+        }
+    }
+
+    // 비밀번호
+    function pwCheck(){
+        var exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_!])[a-zA-Z\d-_!]{8,16}$/; 
+        const pw = document.getElementById('pw').value;
+        const pwLegth = pw.length
+        const pwResult = document.getElementById('pwResult')
+        if(pw.match(exp)){
+            pwResult.innerHTML = '유효한 형식입니다.'
+            pwResult.style.color = 'green'
+        } else if(pwLegth == 0){
+            pwResult.innerHTML = '필수항목입니다'
+            pwResult.style.color = 'red'
+        } else{
+            pwResult.innerHTML = '유효하지 않은 형식입니다.'
+            pwResult.style.color = 'red'
+        }
+    }
+
+    // 비밀번호 확인
+    function pw_checkResult(){
+            const pwValue = document.getElementById("pw").value;
+            const pw_checkValue = document.getElementById('pw_check').value;
+            const pw_checkResult = document.getElementById('pw_checkResult')
+            const pwLegth = pwValue.length
+            if(pwLegth == 0){
+                pw_checkResult.innerHTML = '필수항목입니다'
+                pw_checkResult.style.color = 'red'
+            } else if(pwValue != pw_checkValue){
+                pw_checkResult.innerHTML = '비밀번호가 틀렸습니다'
+                pw_checkResult.style.color = 'red'
+            } else if(pwValue == pw_checkValue) {
+                pw_checkResult.innerHTML = '비밀번호가 확인 됐습니다'
+                pw_checkResult.style.color = 'green'
+            }
+            
+    } 
+
+    // 이메일
+    function emailSelect(){
+        const domainSelect = document.getElementById('domainSelect').value
+        const domain = document.getElementById('domain').value = domainSelect
+    }
+
+    // 성별
+    function genderSelect(){
+        
+    }
+
+    // 전화번호
+    function phoneCheck(){
+        //const exp = /^\d{3}-\d{4}-\d{4}$/;
+        const exp = /^\d{3}\d{4}\d{4}$/; 
+        const phone = document.getElementById('phone').value;
+        const result = document.getElementById('phone-check-result');
+
+        if(phone.match(exp)){
+            result.innerHTML = '유효한형식입니다'
+            result.style.color = 'green'
+        } else {
+            result.innerHTML = '유효하지 않은 형식입니다'
+            result.style.color = 'red'
+        }
+    }
+
+    // 주소
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+
+</script>
+</html>
