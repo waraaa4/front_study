@@ -18,6 +18,10 @@
             padding: 0;
             margin: 0;
         }
+        li,ul,ol{list-style: none;}
+        a:link {text-decoration: none;}
+
+        /* 헤더 */
         header {
             background-color: #010101;
             position: fixed;
@@ -25,26 +29,8 @@
             width: 100%;
             padding: 15px;
         }
-        #intro {
-           
-            
-        }
-        #skills {
-            margin-top: 50px;
-           
-        }
-        #projects {
-            
-            padding-top: 50px;
-        }
-        footer {
-            
-        }
-        .footer_div {
-            
-        }
 
-        /* section1 intro */
+        /* 섹션1 타이틀 */
         .intor_vod{
             max-width: 100%;
         }
@@ -73,6 +59,7 @@
         .title2 {
             color: white;
             margin-top: 20px;
+            margin-bottom: 20px;
             font-size: 21px;
             letter-spacing: 0.1rem;
             line-height: 28px;
@@ -82,7 +69,6 @@
             font-size: 14px;
             letter-spacing: 0.05rem;
             border-color: white;
-            
             color: white;
             font-weight: 300;
             padding: 5px 10px;
@@ -101,54 +87,118 @@
             animation: btn 2s infinite forwards;
         }
         @keyframes btn{
-            0% {bottom: -60px;}
-            50% {bottom: -55px;}
-            100% {bottom: -60px;}
+            0% {bottom: -200px;}
+            50% {bottom: -205px;}
+            100% {bottom: -200px;}
         }
 
-        /* section2 skills */
-        .sec2_title {
+        /* 섹션2 어바웃 */
+        #aboutMe {
+            padding-top: 110px;
+        }
+        .aboutBox {
+            display: flex;   
+            align-items: center;
+            justify-content: center;
             padding-top: 20px;
-            background-color: #f7f7f7;
-            margin-bottom: 20px;
         }
-        .sec2_title h2 {
-            color: #1a1a1a;
-            font-weight: 600;
-            font-size: 40px;
-            margin: 0;
-            letter-spacing: 0.05rem;
+        .aboutBox>p {
+            width: 600px;
+            text-align: left;
+            padding-left: 50px;
+            letter-spacing: 00.025rem;
+            line-height: 30px;
         }
-        .sec2_title h4 {
-            font-size: 20px;
-            font-weight: 300;
-            letter-spacing: 0.05rem;
+
+        /* 섹션3 스킬 */
+        #skills {
+            padding-top: 120px;
+            position: relative;
+        }
+        .skillsBg {
+            background-color: #010101;
         }
         .sec2_box {
-            padding: 27px 0;
-            color: rgb(114, 114, 114);
+            padding-top: 20px;
+            padding-bottom: 15px;
+            color: white;
+            background-color: #010101;
         }
-        .sec2_box1:hover {
-            color: rgb(209, 209, 209);
-        }
-        .sec2_box2:hover {
-            color: rgb(209, 209, 209);
+        .sec2_box h4 {
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            line-height: 40px;
         }
         .sec2_box h5 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 300;
-        }
-        .sec2_box> div:nth-child(2) {
-            margin-top: 30px;
-        }
-        .sec2_img {
-            overflow: hidden;
-        }
-        .sec2_img img {
-            width: 100%;
+            letter-spacing: 0.05rem;
         }
         
+        /* 섹선4 프로젝트 */
+        #projects_move{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            bottom: 80px;
+        }
+        #projects {  
+            position: relative;
+        }
+        .projectsBg {
+            width: 100%;
+            height: 400px;
+            background-color: burlywood;
+            background-image: url(./images/pt_bg.jpg);
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .projectsBg>h1 {
+            color: white;
+            font-size: 60px;
+            font-weight: 200;
+            text-transform: uppercase;
+            letter-spacing: 0.5rem;
+        }
+        .pt_box {
+            padding-top: 100px;
+            margin-bottom: 120px;
+        }
+        .pt_box>h2 {
+            margin: 0;
+            font-size: 35px;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+        }
+        .pt_box>h4{
+            font-size: 16px;
+            letter-spacing: 0.025rem;
+        }
+        .pt_links p {
+            letter-spacing: 0.025rem;
+            font-size: 15px;
+        }
+        .pt_link1:hover > a > p {
+            text-shadow: 0px 0px white;
+            /* animation: bor 2s forwards; */
+        }
+        
+        @keyframes bor{
+            0% {border-bottom: 0px solid black;}
+            50% {}
+            100% {border-bottom: 1px solid black;}
+        }
 
+        @media (max-width: 1600px) {
+            .title_arrow {
+                display: none;
+            }
+        }         
+        
     </style>
 </head>
 <body>
@@ -158,7 +208,7 @@
         <div class="container d-flex align-item-ceter">
             <ul class="nav flex-grow-1">
                 <li class="nav-item">
-                    <a href="#about" class="nav-link text-light">About me</a>
+                    <a href="#aboutMe" class="nav-link text-light">About me</a>
                 </li>
                 <li class="nav-item">
                     <a href="#skills" class="nav-link text-light">Skills</a>
@@ -166,7 +216,7 @@
                 <li class="nav-item">
                     <!-- 해당 페이지 내에서 특정 영역으로 이동할 때. 
                         href 속성값에 id 값을 주면 해당영역으로 스크롤 됨 -->
-                    <a href="#projects" class="nav-link text-light">Projects</a>
+                    <a href="#projects_move" class="nav-link text-light">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" class="nav-link text-light">Contact</a>
@@ -217,82 +267,102 @@
                 <a href="#" class="btn btn-outline-dark my-2 title_btn">Github link</a>
                 <img src="./images/outline_south_white_24dp.png" alt="" class="title_arrow">
             </div>
-            
+        </div>
+    </section>
+    <section id="aboutMe">
+        <div class="container text-center">
+            <h1 style="margin: 0; font-size: 35px; letter-spacing: 0.05rem;">ABOUT ME</h1>
+            <p style="letter-spacing: 0.025rem;">I had a lot of curiosity and passion to push forward.</p>
+            <div class="aboutBox">
+                <img src="./images/about1.jpg" alt="" class="" style="width: 600px;"> 
+                <p class="">When I first jumped into the job of an it developer at a late age, I was worried and anxious, but when I went to an academy called ICIA, I met good teachers and colleagues, and I had hope and goals rather than anxiety.
+                    And the more I learn about coding, the more fun it is, the more I want to know, the more I work hard day by day.
+                    I want to continue to be a developer who does not forget this initial resolution and works hard.</p>
+            </div>
         </div>
     </section>
     <section id="skills">
-        <div class="container">
-            <div class="row text-center sec2_title">
-                <h2>SKILLS</h2>
-                <h4>Introduce the languages and tools available.</h4>
-            </div>
-            <div class="row">
-                <!-- col- 숫자는 12 맞추기 -->
-                <div class="col-4 text-center sec2_box sec2_box1" style="background-color: #010101;">
-                    <div>
-                        <h4>Programming Laguage</h4>
-                        <h5>java</h5>
-                        <h5>JavaScript</h5>
+        <div class="skillsBg">
+            <div class="container">
+                <div class="row">
+                    <!-- col- 숫자는 12 맞추기 -->
+                    <div class="col-3 text-center sec2_box">
+                        <div>
+                            <h4>Programming Laguage</h4>
+                            <h5>java</h5>
+                            <h5>JavaScript</h5>
+                        </div>
                     </div>
-                    <div>
-                        <h4>Databases</h4>
-                        <h5>mysql</h5>
-                        <h5>mybatis</h5>
-                        <h5>jpa</h5>
+                    <div class="col-3 text-center sec2_box">
+                        <div>
+                            <h4>Databases</h4>
+                            <h5>mysql</h5>
+                            <h5>mybatis</h5>
+                            <h5>jpa</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-4 sec2_img">
-                    <img src="./images/p.png" alt="" class="sec2_img1">
-                </div>
-                <div class="col-4 text-center sec2_box sec2_box2" style="background-color: #010101;">
-                    <div>
-                        <h4>Frameworks</h4>
-                        <h5>Spring Boot</h5>
-                        <h5>Spring Framework</h5>
+                    <div class="col-3 text-center sec2_box">
+                        <div>
+                            <h4>Frameworks</h4>
+                            <h5>Spring Boot</h5>
+                            <h5>Spring Framework</h5>
+                        </div>
                     </div>
-                    <div>
-                        <h4>Tools</h4>
-                        <h5>Intellij IDEA</h5>
-                        <h5>Visual Studio Code</h5>
-                        <h5>Eclipse</h5>
+                    <div class="col-3 text-center sec2_box">
+                        <div>
+                            <h4>Tools</h4>
+                            <h5>Intellij IDEA</h5>
+                            <h5>Visual Studio Code</h5>
+                            <h5>Eclipse</h5>
+                            <h5>Photoshop</h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="projects_move"></div>
     </section>
     <section id="projects">
-        <div class="container text-center mb-3 py-3">
-            <h2>Projects</h2>
-            <h4 class="mb-4" style="font-size: 20px; font-weight: 300; letter-spacing: 0.05rem;">A collection of front and back-end portfolios.</h4>
-            <div class="row">
-                <div class="col-4" style="overflow: hidden;">
-                    <img class="rounded" src="./images/1-1.png" alt="" style="width: 400px;">
-                    <p style="margin-top: 10px;">html,css,JavaScript를 사용해서 만든 웹사이트</p>
-                    <p>개발기간: 2021.00.00~00.00</p>
+        <div class="text-center projectsBg">
+            <h1>PORTFOLIO</h1>
+        </div>
+        <div class="container text-center pt_box">
+            <h2>My work</h2>
+            <h4 class="" style="font-size: 20px; font-weight: 300; letter-spacing: 0.05rem; margin-bottom: 36px;">The website and backend works that I made.</h4>
+            <div class="row pt_links">
+                <div class="col-4 pt_link1" style="overflow: hidden;">
+                    <a href="../design/index.html" target="_blank">
+                        <img class="rounded" src="./images/pt_1.gif" alt="">
+                        <p style="margin-top: 10px; margin-bottom: 0; color: black;">Visual Studio Code을 이용해서 만든 웹사이트</p>
+                        <p style="color: black;">개발기간: 2021.00.00~00.00</p>
+                    </a>
                 </div>
-                <div class="col-4" style="overflow: hidden;">
-                    <img class="rounded" src="./images/1-2.png" alt="" style="width: 400px;">
-                    <p style="margin-top: 10px;">Eclipse Tools을 이용한 몬스터RPG</p>
-                    <p>개발기간: 2021.00.00~00.00</p>
+                <div class="col-4 pt_link2" style="overflow: hidden;">
+                    <a href="#" target="_blank">
+                        <img class="rounded" src="./images/pt_2.gif" alt="">
+                        <p style="margin-top: 10px; margin-bottom: 0; color: black;">Eclipse Tools을 이용해서 만든 몬스터RPG</p>
+                        <p style="color: black;">개발기간: 2021.00.00~00.00</p>
+                    </a>
                 </div>
-                <div class="col-4">
-                    <img class="rounded" src="./images/menu.svg" alt="" style="width: 400px;">
-                    <p style="margin-top: 10px;">Spring Framework를 이용한 000</p>
-                    <p>개발기간: 2021.00.00~00.00</p>
+                <div class="col-4 pt_link3" style="overflow: hidden;">
+                    <a href="#" target="_blank">
+                        <img class="rounded" src="./images/pt_3.jpg" alt="">
+                        <p style="margin-top: 10px; margin-bottom: 0; color: black;">none</p>
+                        <p style="color: black;">개발기간: 2021.00.00~00.00</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- 푸터 -->
-    <footer>
-        <div class="container bg-light footer_div">
-            <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <footer id="contact" class="bg-light">
+        <div class="container bg-light">
+            <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
                 <div class="col-md-4 d-flex align-items-center">
                   <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                     <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
                   </a>
-                  <span class="text-muted">&copy; 2021 your name</span>
+                  <span class="text-muted">&copy; 2021 Choi Ji Hwan</span>
                 </div>
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                   <li class="ms-3"><a class="text-muted" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">

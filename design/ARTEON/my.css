@@ -1,0 +1,197 @@
+::selection {background-color: #333333; color: white;}
+html {scroll-behavior: smooth;}
+* {margin: 0; padding: 0; position: relative; color: #333333; 
+    font-family: 'Fira Sans', sans-serif;}
+body {overflow-x: hidden;}
+a {}
+a:link {text-decoration: none;}
+a:visited {color: #333333;}
+h4 {line-height: 25px;}
+section p {line-height: 25px;}
+ul,li{list-style: none;}
+
+/*공통*/
+section, footer {box-sizing: content-box !important; clear: both;}
+section:not(.not) {padding-top: 70px; padding-bottom: 70px;}
+.more-btn {font-weight: 500; font-size: 15px;}
+.more-btn a {color: #b2b2b2; display: inline-block; height: 30px; overflow: hidden;}
+.under{display: block; height: 3px; width: 100%; background-color: #333333; position: absolute; bottom: 0; left: -100%; transition: 0.3s;}
+.more-btn a:hover {color: #333333;}
+.more-btn a:hover .under {left: 0;}
+
+
+/*첫화면*/
+.main {width: 100%; height: 100vh; background-image: url(img/main.jpg); 
+    background-size: cover; background-position: center center; background-attachment: fixed; display: flex; flex-direction: column; justify-content: center; transition: 0.5s;}
+.main p {color: white; max-width: 1200px; width: calc(100% - 50px); margin: 0 auto;}
+.main-txt {font-size: 18px;}
+.big-txt {font-size: 60px; font-weight: 400; text-transform: uppercase;}
+.main-btn {font-size: 13px; top: 20px; z-index: 899;}
+.main-btn a {padding: 19px 45px; border: 1px solid white; color: white; transition: 0.3s;}
+.main-btn a:hover {background-color: white; color: black;}
+
+.main header{position: absolute; top: 0; width: 100%; height: 80px;}
+.main header>div {margin: 0 auto; max-width: 1200px; width: calc(100% - 50px);}
+.main header p {border: 1px solid red; height: 80px;}
+.main h1 {position: absolute; left: 0; top: 20px; color: white;
+    cursor: pointer;}
+.main .ham-btn {position: absolute; right: 0; top: 50px; width: 24px; height: 24px;}
+.ham-btn span {display: block; background-color: white; transition: 0.3s; height: 2px; position: absolute; right: 0;}
+.ham-btn span:nth-child(1) {width: 12px; top: 0;}
+.ham-btn span:nth-child(2) {width: 24px; top: 7px;}
+.ham-btn span:nth-child(3) {width: 12px; top: 14px;}
+.ham-btn:hover span {width: 24px;}
+
+@media (max-width:1054px){/*모바일화면일때*/
+    .big-txt {font-size: 40px; font-weight: 700;}
+}
+@media (max-width:730px){/*모바일화면일때*/
+    .big-txt {font-size: 30px; font-weight: 700;}
+}
+
+/*section1*/
+.section1 .row h4 {font-size: 26px; font-weight: 500; line-height: 40px; margin-bottom: 35px; text-transform: uppercase;}
+.section1 .row p {line-height: 25px; margin-bottom: 35px;}
+
+
+/*section2*/
+.section2>div {height: 100vh;}
+.section2>div:nth-child(1){height: 100vh; 
+    background-image: url(img/philosophy2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center;}
+.section2>div:nth-child(2){display: flex; flex-direction: column; justify-content: center; padding: 10%; box-sizing: border-box; background-color: #f2f2f2;}
+.section2>div:nth-child(2) h4 {font-size: 26px; font-weight: 500; line-height: 25px; margin-bottom: 15px;}
+.section2>div:nth-child(2) p {margin-bottom: 30px;}
+
+@media (max-width:992px){
+    .section2>div:nth-child(1) {height: 66vw !important;}
+    .section2>div:nth-child(2) {height: auto !important;}
+}
+
+
+/*section3*/
+.section3 {}
+.section3 i {font-size: 50px; color: #dddddd; margin-top: 50px; margin-bottom: 20px;}
+.section3 h5 {margin-bottom: 10px;}
+
+
+/*section4*/
+.section4 {max-width: 1400px; width: 100%; margin: 0 auto;}
+.section4 div{padding-left: 0 !important; padding-right: 0 !important;}
+.section4 img{width: 100%; height: auto;}
+.section4 .my-item {cursor: pointer;}
+.section4 .over{position: absolute; width: 100%; height: 100%; top: 0; left: 0; cursor: pointer; background-color: rgba(0,0,0,0); color: white; display: flex; align-items: center; justify-content: center; transition: 0.3s; border: 0px solid rgba(0,0,0,0); box-sizing: border-box;}
+.section4 .over h4 {text-transform: uppercase;}
+.section4 .over p {text-align: center; width: 100%; position: absolute; left: 0; bottom: 0; color: white; font-weight: 500;}
+.section4 .over>*{opacity: 0; transition: 0.3s 0.2s;}
+
+.section4 .my-item:hover{}
+.section4 .my-item:hover .over {background-color: rgba(0,0,0,0.5); border: 10px solid rgba(0,0,0,0.7);}
+.section4 .my-item:hover .over>* {opacity: 1;}
+
+
+/*section5*/
+.section5 {color: #333333; cursor: pointer; overflow: hidden; border-bottom: 1px solid #dddddd; max-width: 1400px; width: 100%; margin: 0 auto;}
+.section5 h4 {text-align: center; line-height: 70px; margin-bottom: 0; z-index: 3;}
+.section5 .black{position: absolute; top: 100%; left: 0; width: 100%; height: 100px; background-color: black; transition: 0.3s;}
+
+.section5:hover {color: white;}
+.section5:hover .black{top: 0;}
+
+
+/*section6*/
+.section6 {}
+.section6 h3 {text-transform: uppercase;}
+.section6 img{width: 100%; display: block; cursor: pointer; 
+    transition: 0.3s;}
+.section6 .col-sm-4 {margin-top: 20px; overflow: hidden;}
+.section6 .col-sm-4 h4 {text-transform: uppercase;}
+.small {color: #999999; font-weight: 500;}
+
+.section6 img:hover {transform: scale(1.02);}
+
+
+/*footer*/
+footer {background-color: #222222; padding-top: 70px; padding-bottom: 70px;}
+footer p {color: #d2d2d2;}
+footer p i {color: #d2d2d2; margin-right: 5px; font-size: 16px; cursor: pointer;}
+footer p i:nth-child(3) {margin-right: 8px;}
+footer h4, footer b {height: 30px; color: white;}
+footer img {display: block;}
+
+.top-btn {display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; position: fixed; bottom:20px; right: 20px; z-index: 100; background-color: black;}
+.top-btn .glyphicon {color: white;}
+
+
+/*메뉴 토글*/
+.cc {transform: translate(-30vw); transition: 0.5s;}
+.dd {padding-left: 400px; transition: 0.5s;}
+.zz {display: block !important;}
+
+.right-wrap {width: 100vw; height: 100vh; display: flex; 
+    background-color: black; position: absolute; top: 0; right: 0; 
+    z-index: -1; justify-content: flex-end; text-align: center; 
+    cursor: pointer;}
+.right-menu {width: 35%;}
+.right-menu img {padding: 30px 0;}
+.section11 {margin-top: 13vw;}
+.section11 li {font-size: 2.5em; line-height: 70px; color: white; font-weight: 300;}
+
+.right-top {width: 100vw; position: absolute; top: 90px; left: 0; background-color: white; display: none; transition: 0.5s;}
+.right-top li {line-height: 40px; font-size: 16px; font-weight: 500; padding-left: 20px; border-bottom: 1px solid #d2d2d2; cursor: pointer;}
+.right-top li:last-child{border: none; margin-bottom: -6px;}
+
+@media (max-width:970px){
+    .cc {transform: translate(0vw); transition: 0.5s;}
+    .dd {padding-left: 0px; transition: 0.5s;}
+    
+}
+
+/*팝업이미지*/
+.pop-black {width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background-color: black; z-index:99; opacity: 0.8; }
+.pop-group {width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; z-index: 100; }
+.pop {border: 7px solid #222222;  display: flex; align-items: center; justify-content: center; flex-direction: column;}
+.pop i {position: absolute; right: 10px; top: 10px; z-index: 100; font-size: 25px;}
+.pop img {width: 100%;}
+
+
+
+
+/*로그인창*/
+.pop_color {width: 100vw; height: 100vh; background-color: aquamarine; position: fixed; top: 0; left: 0; z-index: 998; opacity: 0.1; display: none;}
+.pop_wrap {width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; display: flex; align-items: center; justify-content: center;z-index: 999; display: none;}
+.pop {max-width: 1000px; width: calc(100% - 100px); background-color: white; display: flex; }
+        
+.left_pop {max-width: 500px; width: 50%; background-image: url(img/main.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;}
+
+        
+.right_pop {max-width: 500px; width: 50%;}
+.right_pop>.right_top {width: 100%; height: 70px;}
+.right_pop>.right_top>#xx {top: 15px; right: 15px; position: absolute; font-size: 20px; padding: 2px 5px; border-radius: 2px; border: none;}
+
+.right_pop>.right_content {width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;  margin: 0 auto;}
+.right_pop>.right_content>h1 { line-height: 60px; font-size: 45px;}
+.right_pop>.right_content>p {line-height: 30px; padding-bottom: 30px; color: #d2d2d2;}
+.right_pop>.right_content>.con {width: 60%; display: flex; flex-direction: column;}
+.right_pop>.right_content>.con>label {font-size: 20px; padding-left: 10px; line-height: 35px;}
+.right_pop>.right_content>.con>input {width: 90%; padding-left: 2px; line-height: 20px; margin-left: 10px; margin-bottom: 10px;}
+
+.right_bottom {text-align: center;}
+.right_bottom>button {font-size: 40px; margin: 10px 0; color: white; background-color: aquamarine; border: 1px solid #d2d2d2; padding: 10px 25px; margin-bottom: 50px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
