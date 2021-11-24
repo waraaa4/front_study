@@ -1,4 +1,5 @@
 ## git 설정 
+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 -- 
     1. git으로 관리할 폴더에서 power shell(or cmd) 열기 
     2. 해당 폴더를 git으로 관리하기 위한 명령 입력 
         1. git init
