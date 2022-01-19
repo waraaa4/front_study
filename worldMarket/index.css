@@ -1,0 +1,121 @@
+* { padding:0; 
+    margin:0; 
+    font-family: 'Roboto', sans-serif;
+    position:relative;
+}
+
+li,ul,ol {list-style: none;}
+a:link {text-decoration: none;}
+a:visited{color: black;}
+::selection {background-color: black; color: white;}
+::placeholder {color: white;}
+.clear {clear:both;}
+.wrap {width: 100%; height: 100%;}
+
+/* 로고 로그인 회원가입 */
+.header {
+    width: 1200px;
+    height: 30px;
+    border: 1px solid red;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+
+}
+
+.member {
+    
+}
+
+.member > a {
+    color: black;
+}
+
+/* 카테고리 서치 마이페이지 장바구니 */
+.section_nav {
+    width: 1200px;
+    height: 50px;
+    border: 1px solid blue;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search {
+    
+}
+.category {
+
+}
+
+.ham_btn {width: 40px; height: 40px; display: flex; align-items: center; cursor: pointer;
+    justify-content: center; flex-direction: column; text-align: right;}
+.ham_btn div {width: 40px; height: 40px; display: flex; 
+    justify-content: center ;flex-direction: column; 
+    align-items: flex-end; transition: 0.5s;}
+.ham_btn div span {transition: 0.5s; background: black;
+    width: 30px; height: 3px; margin: 3px; transition: 0.3s;}
+.ham_btn div span:nth-child(1) {
+    transform: translate(0px,0px) rotate(0deg);}
+.ham_btn div span:nth-child(2) {opacity: 1;}
+.ham_btn div span:nth-child(3) {
+    transform: translate(0px,0px) rotate(0deg);}
+
+
+/* 메인 이미지 */
+.section_MainImg {
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+}
+
+/* 게시글 목록 */
+.section_box {
+    width: 1200px;
+    margin: 0 auto;
+    border: 1px solid yellow;
+    display: flex;
+}
+
+.boxs {
+    margin: 0 10px;
+    width: 280px;
+    height: 250px;
+    display: flex;
+}
+
+.boxs li {
+    display: flex;
+    flex-direction: column;
+}
+
+.boxs li img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 카피라이터 */
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer > div {
+    width: 1200px;
+    border: 1px solid green;
+}
+
+
+
+
+
+
